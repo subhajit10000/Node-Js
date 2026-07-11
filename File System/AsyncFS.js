@@ -21,3 +21,24 @@ fs.writeFile("sample.txt", "Hello Node.js!", (err) => {
         console.log(data);
 
       
+  // Update the file
+        fs.appendFile("sample.txt", "\nWelcome to Express.", (err) => {
+            if (err) {
+                console.log("Error updating file:", err);
+                return;
+            }
+
+            console.log("File updated successfully.");
+
+            // Delete the file
+            fs.unlink("sample.txt", (err) => {
+                if (err) {
+                    console.log("Error deleting file:", err);
+                    return;
+                }
+
+                console.log("File deleted successfully.");
+            });
+        });
+    });
+});
